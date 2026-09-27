@@ -5,6 +5,7 @@
   "dependencies": {
     "@expo/ui": "~57.0.18",
     "@expo/vector-icons": "^15.0.2",
+    "@hookform/resolvers": "^5.9.1",
     "@portfolio-tracker/shared": "workspace:*",
     "@react-native-async-storage/async-storage": "^3.1.1",
     "expo": "~57.0.22",
@@ -23,6 +24,7 @@
     "firebase": "^12.19.0",
     "react": "19.2.3",
     "react-dom": "19.2.3",
+    "react-hook-form": "^7.89.0",
     "react-native": "0.86.3",
     "react-native-gesture-handler": "~2.32.0",
     "react-native-reanimated": "4.5.1",
