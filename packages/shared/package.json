@@ -1,0 +1,12 @@
+{
+  "name": "@portfolio-tracker/shared",
+  "version": "0.0.0",
+  "private": true,
+  "exports": {
+    ".": "./src/index.ts",
+    "./transactions": "./src/transactions/index.ts"
+  },
+  "dependencies": {
+    "zod": "^4.0.0"
+  }
+}
