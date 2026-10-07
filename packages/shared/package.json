@@ -2,11 +2,21 @@
   "name": "@portfolio-tracker/shared",
   "version": "0.0.0",
   "private": true,
+  "type": "module",
   "exports": {
     ".": "./src/index.ts",
     "./transactions": "./src/transactions/index.ts"
   },
+  "scripts": {
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
+  },
   "dependencies": {
     "zod": "^4.0.0"
+  },
+  "devDependencies": {
+    "@portfolio-tracker/eslint-config": "workspace:*",
+    "eslint": "^9.20.0",
+    "typescript": "^5.0.0"
   }
 }

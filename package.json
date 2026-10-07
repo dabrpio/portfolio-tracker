@@ -1,4 +1,13 @@
 {
   "name": "portfolio-tracker",
-  "private": true
+  "private": true,
+  "scripts": {
+    "lint": "pnpm -r --parallel run lint",
+    "lint:fix": "pnpm -r --parallel run lint:fix",
+    "format": "prettier --check \"**/*.{ts,tsx,js,json,md}\"",
+    "format:fix": "prettier --write \"**/*.{ts,tsx,js,json,md}\""
+  },
+  "devDependencies": {
+    "prettier": "^3.4.2"
+  }
 }
