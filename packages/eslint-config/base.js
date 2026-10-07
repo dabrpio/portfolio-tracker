@@ -1,6 +1,6 @@
-import js from "@eslint/js";
-import prettierConfig from "eslint-config-prettier";
-import tseslint from "typescript-eslint";
+import js from '@eslint/js';
+import prettierConfig from 'eslint-config-prettier';
+import tseslint from 'typescript-eslint';
 
 export const baseConfig = [
   js.configs.recommended,
@@ -8,17 +8,17 @@ export const baseConfig = [
   prettierConfig,
   {
     rules: {
-      "@typescript-eslint/no-unused-vars": [
-        "error",
+      '@typescript-eslint/no-unused-vars': [
+        'error',
         {
-          argsIgnorePattern: "^_",
-          varsIgnorePattern: "^_",
-          caughtErrorsIgnorePattern: "^_",
+          argsIgnorePattern: '^_',
+          varsIgnorePattern: '^_',
+          caughtErrorsIgnorePattern: '^_',
         },
       ],
-      "@typescript-eslint/consistent-type-imports": [
-        "warn",
-        { prefer: "type-imports", fixStyle: "inline-type-imports" },
+      '@typescript-eslint/consistent-type-imports': [
+        'warn',
+        { prefer: 'type-imports', fixStyle: 'inline-type-imports' },
       ],
     },
   },

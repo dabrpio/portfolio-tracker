@@ -1,21 +1,21 @@
-import { router } from "expo-router";
-import { Pressable, StyleSheet, Text, View } from "react-native";
+import { router } from 'expo-router';
+import { Pressable, StyleSheet, Text, View } from 'react-native';
 
 const accounts = [
   {
-    id: "1",
-    name: "XTB",
+    id: '1',
+    name: 'XTB',
   },
   {
-    id: "2",
-    name: "Interactive Brokers",
+    id: '2',
+    name: 'Interactive Brokers',
   },
 ];
 
 export default function SelectAccountScreen() {
   function handleSelectAccount(accountId: string) {
     router.push({
-      pathname: "/import/asset",
+      pathname: '/import/asset',
       params: { accountId },
     });
   }
@@ -45,17 +45,17 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 28,
-    fontWeight: "700",
+    fontWeight: '700',
     marginBottom: 16,
   },
   account: {
     padding: 18,
     borderWidth: 1,
-    borderColor: "#ddd",
+    borderColor: '#ddd',
     borderRadius: 12,
   },
   accountName: {
     fontSize: 17,
-    fontWeight: "600",
+    fontWeight: '600',
   },
 });

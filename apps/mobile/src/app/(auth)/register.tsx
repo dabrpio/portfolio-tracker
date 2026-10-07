@@ -1,22 +1,22 @@
-import { Link } from "expo-router";
-import { useState } from "react";
-import { Alert, Button, Text, TextInput, View } from "react-native";
+import { Link } from 'expo-router';
+import { useState } from 'react';
+import { Alert, Button, Text, TextInput, View } from 'react-native';
 
-import { register } from "@/features/auth/auth.service";
+import { register } from '@/features/auth/auth.service';
 
 export default function RegisterScreen() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
   async function handleRegister() {
     try {
       const user = await register(email, password);
 
-      console.log("Registered:", user.uid);
+      console.log('Registered:', user.uid);
     } catch (error) {
       console.error(error);
 
-      Alert.alert("Registration failed", "Could not create your account.");
+      Alert.alert('Registration failed', 'Could not create your account.');
     }
   }
 

@@ -1,19 +1,19 @@
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useLocalSearchParams } from "expo-router";
-import { Controller, useForm } from "react-hook-form";
+import { zodResolver } from '@hookform/resolvers/zod';
+import { useLocalSearchParams } from 'expo-router';
+import { Controller, useForm } from 'react-hook-form';
 import {
-    Pressable,
-    ScrollView,
-    StyleSheet,
-    Text,
-    TextInput,
-    View,
-} from "react-native";
+  Pressable,
+  ScrollView,
+  StyleSheet,
+  Text,
+  TextInput,
+  View,
+} from 'react-native';
 
 import {
-    createTransactionSchema,
-    type CreateTransaction,
-} from "@portfolio-tracker/shared";
+  createTransactionSchema,
+  type CreateTransaction,
+} from '@portfolio-tracker/shared';
 
 export default function TransactionDetailsScreen() {
   const { accountId, ticker } = useLocalSearchParams<{
@@ -30,15 +30,15 @@ export default function TransactionDetailsScreen() {
     defaultValues: {
       accountId,
       ticker,
-      operation: "BUY",
+      operation: 'BUY',
       quantity: undefined,
       price: undefined,
-      currency: "USD",
+      currency: 'USD',
       transactionDate: new Date().toISOString(),
       transactionTime: undefined,
       tradingCost: undefined,
       taxes: undefined,
-      description: "",
+      description: '',
     },
   });
 
@@ -67,14 +67,14 @@ export default function TransactionDetailsScreen() {
               <Pressable
                 style={[
                   styles.operationButton,
-                  value === "BUY" && styles.operationButtonActive,
+                  value === 'BUY' && styles.operationButtonActive,
                 ]}
-                onPress={() => onChange("BUY")}
+                onPress={() => onChange('BUY')}
               >
                 <Text
                   style={[
                     styles.operationText,
-                    value === "BUY" && styles.operationTextActive,
+                    value === 'BUY' && styles.operationTextActive,
                   ]}
                 >
                   Buy
@@ -84,14 +84,14 @@ export default function TransactionDetailsScreen() {
               <Pressable
                 style={[
                   styles.operationButton,
-                  value === "SELL" && styles.operationButtonActive,
+                  value === 'SELL' && styles.operationButtonActive,
                 ]}
-                onPress={() => onChange("SELL")}
+                onPress={() => onChange('SELL')}
               >
                 <Text
                   style={[
                     styles.operationText,
-                    value === "SELL" && styles.operationTextActive,
+                    value === 'SELL' && styles.operationTextActive,
                   ]}
                 >
                   Sell
@@ -115,9 +115,9 @@ export default function TransactionDetailsScreen() {
           render={({ field: { value, onChange, onBlur } }) => (
             <TextInput
               style={styles.input}
-              value={value === undefined ? "" : String(value)}
+              value={value === undefined ? '' : String(value)}
               onChangeText={(text) => {
-                onChange(text === "" ? undefined : Number(text));
+                onChange(text === '' ? undefined : Number(text));
               }}
               onBlur={onBlur}
               keyboardType="decimal-pad"
@@ -140,9 +140,9 @@ export default function TransactionDetailsScreen() {
           render={({ field: { value, onChange, onBlur } }) => (
             <TextInput
               style={styles.input}
-              value={value === undefined ? "" : String(value)}
+              value={value === undefined ? '' : String(value)}
               onChangeText={(text) => {
-                onChange(text === "" ? undefined : Number(text));
+                onChange(text === '' ? undefined : Number(text));
               }}
               onBlur={onBlur}
               keyboardType="decimal-pad"
@@ -209,7 +209,7 @@ export default function TransactionDetailsScreen() {
           render={({ field: { value, onChange, onBlur } }) => (
             <TextInput
               style={styles.input}
-              value={value ?? ""}
+              value={value ?? ''}
               onChangeText={onChange}
               onBlur={onBlur}
               placeholder="Optional"
@@ -228,9 +228,9 @@ export default function TransactionDetailsScreen() {
           render={({ field: { value, onChange, onBlur } }) => (
             <TextInput
               style={styles.input}
-              value={value === undefined ? "" : String(value)}
+              value={value === undefined ? '' : String(value)}
               onChangeText={(text) => {
-                onChange(text === "" ? undefined : Number(text));
+                onChange(text === '' ? undefined : Number(text));
               }}
               onBlur={onBlur}
               keyboardType="decimal-pad"
@@ -253,9 +253,9 @@ export default function TransactionDetailsScreen() {
           render={({ field: { value, onChange, onBlur } }) => (
             <TextInput
               style={styles.input}
-              value={value === undefined ? "" : String(value)}
+              value={value === undefined ? '' : String(value)}
               onChangeText={(text) => {
-                onChange(text === "" ? undefined : Number(text));
+                onChange(text === '' ? undefined : Number(text));
               }}
               onBlur={onBlur}
               keyboardType="decimal-pad"
@@ -311,11 +311,11 @@ const styles = StyleSheet.create({
   },
   assetLabel: {
     fontSize: 14,
-    color: "#666",
+    color: '#666',
   },
   assetTicker: {
     fontSize: 24,
-    fontWeight: "700",
+    fontWeight: '700',
     marginTop: 4,
   },
   field: {
@@ -323,56 +323,56 @@ const styles = StyleSheet.create({
   },
   label: {
     fontSize: 14,
-    fontWeight: "600",
+    fontWeight: '600',
   },
   input: {
     borderWidth: 1,
-    borderColor: "#ccc",
+    borderColor: '#ccc',
     borderRadius: 10,
     paddingHorizontal: 14,
     paddingVertical: 12,
     fontSize: 16,
   },
   operationRow: {
-    flexDirection: "row",
+    flexDirection: 'row',
     gap: 8,
   },
   operationButton: {
     flex: 1,
     borderWidth: 1,
-    borderColor: "#ccc",
+    borderColor: '#ccc',
     borderRadius: 10,
     paddingVertical: 12,
-    alignItems: "center",
+    alignItems: 'center',
   },
   operationButtonActive: {
-    backgroundColor: "#111",
-    borderColor: "#111",
+    backgroundColor: '#111',
+    borderColor: '#111',
   },
   operationText: {
     fontSize: 16,
-    fontWeight: "600",
+    fontWeight: '600',
   },
   operationTextActive: {
-    color: "#fff",
+    color: '#fff',
   },
   textArea: {
     minHeight: 100,
   },
   error: {
-    color: "#d00",
+    color: '#d00',
     fontSize: 13,
   },
   submitButton: {
     marginTop: 8,
-    backgroundColor: "#111",
+    backgroundColor: '#111',
     borderRadius: 10,
     paddingVertical: 14,
-    alignItems: "center",
+    alignItems: 'center',
   },
   submitButtonText: {
-    color: "#fff",
+    color: '#fff',
     fontSize: 16,
-    fontWeight: "600",
+    fontWeight: '600',
   },
 });

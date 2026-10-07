@@ -1,5 +1,5 @@
-import { router, useLocalSearchParams } from "expo-router";
-import { useState } from "react";
+import { router, useLocalSearchParams } from 'expo-router';
+import { useState } from 'react';
 import {
   FlatList,
   Pressable,
@@ -7,18 +7,18 @@ import {
   Text,
   TextInput,
   View,
-} from "react-native";
+} from 'react-native';
 
 export default function SelectAssetScreen() {
   const { accountId } = useLocalSearchParams<{
     accountId: string;
   }>();
 
-  const [query, setQuery] = useState("");
+  const [query, setQuery] = useState('');
 
   function handleSelectAsset(ticker: string) {
     router.push({
-      pathname: "/import/details",
+      pathname: '/import/details',
       params: {
         accountId,
         ticker,
@@ -38,16 +38,16 @@ export default function SelectAssetScreen() {
 
       <FlatList
         data={[
-          { name: "Apple Inc.", ticker: "AAPL" },
-          { name: "Microsoft Corporation", ticker: "MSFT" },
-          { name: "Amazon.com, Inc.", ticker: "AMZN" },
-          { name: "Alphabet Inc.", ticker: "GOOGL" },
-          { name: "Facebook, Inc.", ticker: "FB" },
-          { name: "Tesla, Inc.", ticker: "TSLA" },
-          { name: "NVIDIA Corporation", ticker: "NVDA" },
-          { name: "Netflix, Inc.", ticker: "NFLX" },
-          { name: "The Walt Disney Company", ticker: "DIS" },
-          { name: "Intel Corporation", ticker: "INTC" },
+          { name: 'Apple Inc.', ticker: 'AAPL' },
+          { name: 'Microsoft Corporation', ticker: 'MSFT' },
+          { name: 'Amazon.com, Inc.', ticker: 'AMZN' },
+          { name: 'Alphabet Inc.', ticker: 'GOOGL' },
+          { name: 'Facebook, Inc.', ticker: 'FB' },
+          { name: 'Tesla, Inc.', ticker: 'TSLA' },
+          { name: 'NVIDIA Corporation', ticker: 'NVDA' },
+          { name: 'Netflix, Inc.', ticker: 'NFLX' },
+          { name: 'The Walt Disney Company', ticker: 'DIS' },
+          { name: 'Intel Corporation', ticker: 'INTC' },
         ]}
         renderItem={({ item }) => (
           <Pressable
@@ -70,7 +70,7 @@ const styles = StyleSheet.create({
   },
   input: {
     borderWidth: 1,
-    borderColor: "#ccc",
+    borderColor: '#ccc',
     borderRadius: 10,
     paddingHorizontal: 14,
     paddingVertical: 12,

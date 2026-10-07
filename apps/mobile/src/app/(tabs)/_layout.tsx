@@ -1,8 +1,8 @@
-import { MaterialCommunityIcons } from "@expo/vector-icons";
-import { Redirect, VectorIcon } from "expo-router";
-import { NativeTabs } from "expo-router/unstable-native-tabs";
+import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { Redirect, VectorIcon } from 'expo-router';
+import { NativeTabs } from 'expo-router/unstable-native-tabs';
 
-import { useAuth } from "@/features/auth/use-auth";
+import { useAuth } from '@/features/auth/use-auth';
 
 export default function TabLayout() {
   const { user, loading } = useAuth();

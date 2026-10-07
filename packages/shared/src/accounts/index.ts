@@ -1,11 +1,11 @@
-import { z } from "zod";
+import { z } from 'zod';
 
-export const accountTypeSchema = z.enum(["brokerage", "cash"]);
+export const accountTypeSchema = z.enum(['brokerage', 'cash']);
 
 export const currencySchema = z.string().length(3);
 
 export const createAccountSchema = z.object({
-  name: z.string().min(1, "Account name is required."),
+  name: z.string().min(1, 'Account name is required.'),
   type: accountTypeSchema,
   broker: z.string().nullable(),
   currency: currencySchema,

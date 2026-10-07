@@ -1,22 +1,22 @@
-import { Link } from "expo-router";
-import { useState } from "react";
-import { Alert, Button, Text, TextInput, View } from "react-native";
+import { Link } from 'expo-router';
+import { useState } from 'react';
+import { Alert, Button, Text, TextInput, View } from 'react-native';
 
-import { login } from "@/features/auth/auth.service";
+import { login } from '@/features/auth/auth.service';
 
 export default function LoginScreen() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
   async function handleLogin() {
     try {
       const user = await login(email, password);
 
-      console.log("Logged in:", user.uid);
+      console.log('Logged in:', user.uid);
     } catch (error) {
       console.error(error);
 
-      Alert.alert("Login failed", "Invalid email or password.");
+      Alert.alert('Login failed', 'Invalid email or password.');
     }
   }
 

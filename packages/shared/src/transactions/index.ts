@@ -1,22 +1,22 @@
-import { z } from "zod";
+import { z } from 'zod';
 
 export const operationSchema = z.enum([
-  "BUY",
-  "SELL",
-  "DEPOSIT",
-  "WITHDRAWAL",
-  "DIVIDEND",
+  'BUY',
+  'SELL',
+  'DEPOSIT',
+  'WITHDRAWAL',
+  'DIVIDEND',
 ]);
 
 export const createTransactionSchema = z.object({
   accountId: z.string(),
-  ticker: z.string().min(1, "Ticker is required"),
+  ticker: z.string().min(1, 'Ticker is required'),
   operation: operationSchema,
   quantity: z
-    .number("Quantity is required")
-    .positive("Quantity must be greater than 0"),
-  price: z.number("Price is required").positive("Price must be greater than 0"),
-  currency: z.string().min(1, "Currency is required"),
+    .number('Quantity is required')
+    .positive('Quantity must be greater than 0'),
+  price: z.number('Price is required').positive('Price must be greater than 0'),
+  currency: z.string().min(1, 'Currency is required'),
   transactionDate: z.iso.datetime(),
   transactionTime: z.string().optional(),
   tradingCost: z.number().optional(),

@@ -1,8 +1,8 @@
-import baseConfig from "@portfolio-tracker/eslint-config/base";
+import baseConfig from '@portfolio-tracker/eslint-config/base';
 
 export default [
   ...baseConfig,
   {
-    ignores: ["node_modules/**", "dist/**"],
+    ignores: ['node_modules/**', 'dist/**'],
   },
 ];

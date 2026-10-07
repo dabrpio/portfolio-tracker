@@ -1,13 +1,13 @@
-import { MaterialCommunityIcons } from "@expo/vector-icons";
-import { router } from "expo-router";
-import { Pressable, StyleSheet, Text } from "react-native";
-import { useSafeAreaInsets } from "react-native-safe-area-context";
+import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { router } from 'expo-router';
+import { Pressable, StyleSheet, Text } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 export function AddTransactionFab() {
   const insets = useSafeAreaInsets();
 
   function handlePress() {
-    router.push("/import");
+    router.push('/import');
   }
 
   return (
@@ -31,15 +31,15 @@ export function AddTransactionFab() {
 
 const styles = StyleSheet.create({
   fab: {
-    position: "absolute",
+    position: 'absolute',
     right: 20,
     width: 56,
     height: 56,
     borderRadius: 28,
-    backgroundColor: "#111111",
-    alignItems: "center",
-    justifyContent: "center",
-    shadowColor: "#000",
+    backgroundColor: '#111111',
+    alignItems: 'center',
+    justifyContent: 'center',
+    shadowColor: '#000',
     shadowOffset: {
       width: 0,
       height: 4,
@@ -53,7 +53,7 @@ const styles = StyleSheet.create({
     transform: [{ scale: 0.96 }],
   },
   text: {
-    color: "#fff",
-    fontSize: 12
+    color: '#fff',
+    fontSize: 12,
   },
 });

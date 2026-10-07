@@ -1,6 +1,6 @@
-import { Stack } from "expo-router";
+import { Stack } from 'expo-router';
 
-import { useAuth } from "@/features/auth/use-auth";
+import { useAuth } from '@/features/auth/use-auth';
 
 export default function RootLayout() {
   const { loading, isAuthenticated } = useAuth();
@@ -16,7 +16,7 @@ export default function RootLayout() {
         <Stack.Screen
           name="import"
           options={{
-            presentation: "modal",
+            presentation: 'modal',
             headerShown: false,
           }}
         />

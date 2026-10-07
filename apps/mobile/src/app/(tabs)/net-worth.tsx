@@ -1,74 +1,74 @@
-import { Image, ScrollView, StyleSheet, Text, View } from "react-native";
+import { Image, ScrollView, StyleSheet, Text, View } from 'react-native';
 
-import { AddTransactionFab } from "@/components/add-transaction-fab";
+import { AddTransactionFab } from '@/components/add-transaction-fab';
 
 const DATA = [
   {
-    ticker: "AAPL",
-    name: "Apple Inc.",
+    ticker: 'AAPL',
+    name: 'Apple Inc.',
     quantity: 25,
     value: 4875.0,
     change: 0.05,
   },
   {
-    ticker: "MSFT",
-    name: "Microsoft Corporation",
+    ticker: 'MSFT',
+    name: 'Microsoft Corporation',
     quantity: 12,
     value: 6120.0,
     change: -0.02,
   },
   {
-    ticker: "NVDA",
-    name: "NVIDIA Corporation",
+    ticker: 'NVDA',
+    name: 'NVIDIA Corporation',
     quantity: 30,
     value: 4200.0,
     change: 0.03,
   },
   {
-    ticker: "AMZN",
-    name: "Amazon.com Inc.",
+    ticker: 'AMZN',
+    name: 'Amazon.com Inc.',
     quantity: 15,
     value: 3150.0,
     change: 2.3,
   },
   {
-    ticker: "GOOGL",
-    name: "Alphabet Inc.",
+    ticker: 'GOOGL',
+    name: 'Alphabet Inc.',
     quantity: 18,
     value: 3240.0,
     change: -1.1,
   },
   {
-    ticker: "META",
-    name: "Meta Platforms Inc.",
+    ticker: 'META',
+    name: 'Meta Platforms Inc.',
     quantity: 8,
     value: 4560.0,
     change: 0.75,
   },
   {
-    ticker: "TSLA",
-    name: "Tesla Inc.",
+    ticker: 'TSLA',
+    name: 'Tesla Inc.',
     quantity: 10,
     value: 3750.0,
     change: -0.5,
   },
   {
-    ticker: "PKO.WA",
-    name: "PKO Bank Polski",
+    ticker: 'PKO.WA',
+    name: 'PKO Bank Polski',
     quantity: 100,
     value: 5200.0,
     change: 0.0,
   },
   {
-    ticker: "CDR.WA",
-    name: "CD Projekt",
+    ticker: 'CDR.WA',
+    name: 'CD Projekt',
     quantity: 40,
     value: 2680.0,
     change: 1.2,
   },
   {
-    ticker: "PZU.WA",
-    name: "PZU",
+    ticker: 'PZU.WA',
+    name: 'PZU',
     quantity: 80,
     value: 3840.0,
     change: -0.8,
@@ -103,7 +103,7 @@ const Item = (props: ItemProps) => (
       </View>
       <View>
         <Text>{props.value.toFixed(2)}</Text>
-        <Text style={{ color: props.change > 0 ? "green" : "red" }}>
+        <Text style={{ color: props.change > 0 ? 'green' : 'red' }}>
           {Math.abs(props.change).toFixed(2)}%
         </Text>
       </View>
@@ -136,26 +136,26 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   containerContent: {
-    alignItems: "center",
-    justifyContent: "center",
+    alignItems: 'center',
+    justifyContent: 'center',
     padding: 16,
     paddingBottom: 96,
   },
   title: {
     fontSize: 24,
-    fontWeight: "bold",
+    fontWeight: 'bold',
     marginBottom: 8,
-    alignSelf: "flex-start",
+    alignSelf: 'flex-start',
   },
   positionItem: {
-    display: "flex",
-    flexDirection: "row",
-    alignItems: "center",
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
     gap: 8,
     marginBottom: 8,
   },
   positionLogoWrapper: {
-    backgroundColor: "#e2e2eb",
+    backgroundColor: '#e2e2eb',
     borderRadius: 100,
     padding: 8,
     width: 36,
@@ -166,26 +166,26 @@ const styles = StyleSheet.create({
     height: 20,
   },
   positionDetails: {
-    display: "flex",
-    flexDirection: "row",
-    justifyContent: "space-between",
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
     flex: 1,
   },
   positionName: {
-    fontWeight: "bold",
+    fontWeight: 'bold',
   },
   positionTicker: {
-    display: "flex",
-    flexDirection: "row",
-    alignItems: "center",
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
     gap: 4,
   },
   positionTickerText: {
-    color: "gray",
+    color: 'gray',
     fontSize: 12,
   },
   positionQuantity: {
-    backgroundColor: "#e2e2eb",
+    backgroundColor: '#e2e2eb',
     borderRadius: 10,
     fontSize: 12,
     paddingHorizontal: 4,

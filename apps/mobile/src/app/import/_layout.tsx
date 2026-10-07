@@ -1,6 +1,6 @@
-import { MaterialCommunityIcons } from "@expo/vector-icons";
-import { router, Stack } from "expo-router";
-import { Pressable, StyleSheet } from "react-native";
+import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { router, Stack } from 'expo-router';
+import { Pressable, StyleSheet } from 'react-native';
 
 export default function AddTransactionLayout() {
   function handleDismiss() {
@@ -16,7 +16,7 @@ export default function AddTransactionLayout() {
       <Stack.Screen
         name="index"
         options={{
-          title: "Select account",
+          title: 'Select account',
           headerRight: () => (
             <Pressable
               onPress={handleDismiss}
@@ -28,8 +28,8 @@ export default function AddTransactionLayout() {
           ),
         }}
       />
-      <Stack.Screen name="asset" options={{ title: "Select asset" }} />
-      <Stack.Screen name="details" options={{ title: "Transaction details" }} />
+      <Stack.Screen name="asset" options={{ title: 'Select asset' }} />
+      <Stack.Screen name="details" options={{ title: 'Transaction details' }} />
     </Stack>
   );
 }
