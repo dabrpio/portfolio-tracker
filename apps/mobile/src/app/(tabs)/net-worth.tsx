@@ -1,5 +1,7 @@
 import { Image, ScrollView, StyleSheet, Text, View } from "react-native";
 
+import { AddTransactionFab } from "@/components/add-transaction-fab";
+
 const DATA = [
   {
     ticker: "AAPL",
@@ -111,19 +113,25 @@ const Item = (props: ItemProps) => (
 
 export default function NetWorth() {
   return (
-    <ScrollView
-      style={styles.container}
-      contentContainerStyle={styles.containerContent}
-    >
-      <Text style={styles.title}>Positions</Text>
-      {DATA.map((position) => (
-        <Item key={position.ticker} {...position} />
-      ))}
-    </ScrollView>
+    <View style={styles.screen}>
+      <ScrollView
+        style={styles.container}
+        contentContainerStyle={styles.containerContent}
+      >
+        <Text style={styles.title}>Positions</Text>
+        {DATA.map((position) => (
+          <Item key={position.ticker} {...position} />
+        ))}
+      </ScrollView>
+      <AddTransactionFab />
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
+  screen: {
+    flex: 1,
+  },
   container: {
     flex: 1,
   },
@@ -131,6 +139,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     padding: 16,
+    paddingBottom: 96,
   },
   title: {
     fontSize: 24,

@@ -35,13 +35,6 @@ export default function TabLayout() {
         />
         <NativeTabs.Trigger.Label>Analytics</NativeTabs.Trigger.Label>
       </NativeTabs.Trigger>
-
-      <NativeTabs.Trigger name="import">
-        <NativeTabs.Trigger.Icon
-          src={<VectorIcon family={MaterialCommunityIcons} name="plus" />}
-        />
-        <NativeTabs.Trigger.Label>Import</NativeTabs.Trigger.Label>
-      </NativeTabs.Trigger>
     </NativeTabs>
   );
 }
