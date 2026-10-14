@@ -2,17 +2,23 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { Redirect, VectorIcon } from 'expo-router';
 import { NativeTabs } from 'expo-router/unstable-native-tabs';
 
+import { useAccounts } from '@/features/accounts/hooks/use-accounts';
 import { useAuth } from '@/features/auth/use-auth';
 
 export default function TabLayout() {
   const { user, loading } = useAuth();
+  const { data: accounts, isLoading: accountsLoading } = useAccounts();
 
-  if (loading) {
+  if (loading || (user && accountsLoading)) {
     return null;
   }
 
   if (!user) {
     return <Redirect href="/(auth)/login" />;
+  }
+
+  if (accounts && accounts.length === 0) {
+    return <Redirect href="/onboarding" />;
   }
 
   return (

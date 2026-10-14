@@ -1,4 +1,13 @@
-import { Image, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { router } from 'expo-router';
+import {
+  Image,
+  Pressable,
+  ScrollView,
+  StyleSheet,
+  Text,
+  View,
+} from 'react-native';
 
 import { AddTransactionFab } from '@/components/add-transaction-fab';
 
@@ -118,7 +127,21 @@ export default function NetWorth() {
         style={styles.container}
         contentContainerStyle={styles.containerContent}
       >
-        <Text style={styles.title}>Positions</Text>
+        <View style={styles.headerRow}>
+          <Text style={styles.title}>Positions</Text>
+          <Pressable
+            style={styles.accountsButton}
+            onPress={() => router.push('/accounts')}
+            accessibilityLabel="Manage Accounts"
+          >
+            <MaterialCommunityIcons
+              name="wallet-outline"
+              size={18}
+              color="#111"
+            />
+            <Text style={styles.accountsButtonText}>Accounts</Text>
+          </Pressable>
+        </View>
         {DATA.map((position) => (
           <Item key={position.ticker} {...position} />
         ))}
@@ -136,16 +159,35 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   containerContent: {
-    alignItems: 'center',
-    justifyContent: 'center',
     padding: 16,
     paddingBottom: 96,
+  },
+  headerRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: 16,
+    width: '100%',
   },
   title: {
     fontSize: 24,
     fontWeight: 'bold',
-    marginBottom: 8,
-    alignSelf: 'flex-start',
+  },
+  accountsButton: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 6,
+    paddingHorizontal: 12,
+    paddingVertical: 8,
+    borderRadius: 10,
+    backgroundColor: '#f1f5f9',
+    borderWidth: 1,
+    borderColor: '#e2e8f0',
+  },
+  accountsButtonText: {
+    fontSize: 14,
+    fontWeight: '600',
+    color: '#0f172a',
   },
   positionItem: {
     display: 'flex',
