@@ -13,6 +13,7 @@ export const createAccountSchema = z.object({
 
 export const accountSchema = z.object({
   id: z.string(),
+  userId: z.string(),
   ...createAccountSchema.shape,
   balance: z.number(),
   lastUpdate: z.string(),

@@ -1,11 +1,13 @@
 import { Injectable } from '@nestjs/common';
 import { cert, getApps, initializeApp, type App } from 'firebase-admin/app';
 import { getAuth, type Auth } from 'firebase-admin/auth';
+import { getFirestore, type Firestore } from 'firebase-admin/firestore';
 
 @Injectable()
 export class FirebaseService {
   private readonly app: App;
   private readonly auth: Auth;
+  private readonly firestore: Firestore;
 
   constructor() {
     const existingApp = getApps()[0];
@@ -21,9 +23,14 @@ export class FirebaseService {
       });
 
     this.auth = getAuth(this.app);
+    this.firestore = getFirestore(this.app);
   }
 
   getAuth(): Auth {
     return this.auth;
+  }
+
+  getFirestore(): Firestore {
+    return this.firestore;
   }
 }

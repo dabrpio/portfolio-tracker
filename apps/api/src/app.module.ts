@@ -1,5 +1,6 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
+import { AccountsModule } from './accounts/accounts.module.js';
 import { AuthModule } from './auth/auth.module.js';
 import { FirebaseModule } from './firebase/firebase.module.js';
 
@@ -10,6 +11,7 @@ import { FirebaseModule } from './firebase/firebase.module.js';
     }),
     FirebaseModule,
     AuthModule,
+    AccountsModule,
   ],
 })
 export class AppModule {}
