@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import type { DecodedIdToken } from 'firebase-admin/auth';
-import { type FirebaseService } from '../firebase/firebase.service.js';
+import { FirebaseService } from '../firebase/firebase.service.js';
 
 @Injectable()
 export class AuthService {
