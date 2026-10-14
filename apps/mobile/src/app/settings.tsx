@@ -1,16 +1,27 @@
+import { logout } from '@/features/auth/auth.service';
+import { useAuth } from '@/features/auth/use-auth';
+import { queryClient } from '@/lib/query-client';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
+import Constants from 'expo-constants';
 import { Image } from 'expo-image';
 import { router } from 'expo-router';
 import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-
-import { useAuth } from '@/features/auth/use-auth';
 
 export default function SettingsScreen() {
   const insets = useSafeAreaInsets();
   const { user } = useAuth();
 
   const userInitial = user?.email ? user.email.charAt(0).toUpperCase() : '?';
+
+  async function handleLogout() {
+    try {
+      await logout();
+      queryClient.clear();
+    } catch {
+      // silently handle or log error
+    }
+  }
 
   return (
     <View style={[styles.screen, { paddingTop: insets.top }]}>
@@ -129,6 +140,29 @@ export default function SettingsScreen() {
               <Text style={styles.comingSoonText}>Coming Soon</Text>
             </View>
           </View>
+        </View>
+
+        {/* Account Actions Section */}
+        <View style={styles.section}>
+          <Pressable
+            onPress={handleLogout}
+            style={({ pressed }) => [
+              styles.logoutButton,
+              pressed && styles.logoutButtonPressed,
+            ]}
+            accessibilityRole="button"
+            accessibilityLabel="Log Out"
+          >
+            <MaterialCommunityIcons name="logout" size={20} color="#dc2626" />
+            <Text style={styles.logoutText}>Log Out</Text>
+          </Pressable>
+        </View>
+
+        {/* App Version Footer */}
+        <View style={styles.footer}>
+          <Text style={styles.footerText}>
+            Portfolio Tracker v{Constants.expoConfig?.version ?? '1.0.0'}
+          </Text>
         </View>
       </ScrollView>
     </View>
@@ -278,5 +312,34 @@ const styles = StyleSheet.create({
     fontSize: 11,
     fontWeight: '600',
     color: '#64748b',
+  },
+  logoutButton: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: 14,
+    borderRadius: 14,
+    backgroundColor: '#fef2f2',
+    borderWidth: 1,
+    borderColor: '#fecaca',
+    gap: 8,
+  },
+  logoutButtonPressed: {
+    backgroundColor: '#fee2e2',
+  },
+  logoutText: {
+    fontSize: 15,
+    fontWeight: '600',
+    color: '#dc2626',
+  },
+  footer: {
+    alignItems: 'center',
+    marginTop: 4,
+    paddingVertical: 8,
+  },
+  footerText: {
+    fontSize: 12,
+    fontWeight: '500',
+    color: '#94a3b8',
   },
 });
