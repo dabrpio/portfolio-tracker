@@ -16,6 +16,12 @@ export default function RootLayout() {
         <Stack.Protected guard={isAuthenticated}>
           <Stack.Screen name="(tabs)" />
           <Stack.Screen
+            name="settings"
+            options={{
+              headerShown: false,
+            }}
+          />
+          <Stack.Screen
             name="onboarding"
             options={{
               headerShown: false,

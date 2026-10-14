@@ -1,4 +1,5 @@
 import { Image } from 'expo-image';
+import { router } from 'expo-router';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
@@ -15,18 +16,26 @@ export function TabHeader({ title, onProfilePress }: TabHeaderProps) {
 
   const userInitial = user?.email ? user.email.charAt(0).toUpperCase() : '?';
 
+  function handleProfilePress() {
+    if (onProfilePress) {
+      onProfilePress();
+    } else {
+      router.push('/settings');
+    }
+  }
+
   return (
     <View style={[styles.container, { paddingTop: insets.top + 8 }]}>
       <Text style={styles.title}>{title}</Text>
 
       <Pressable
-        onPress={onProfilePress}
+        onPress={handleProfilePress}
         style={({ pressed }) => [
           styles.avatarButton,
           pressed && styles.avatarPressed,
         ]}
         accessibilityRole="button"
-        accessibilityLabel="User profile"
+        accessibilityLabel="Open settings"
         hitSlop={8}
       >
         {user?.photoURL ? (
