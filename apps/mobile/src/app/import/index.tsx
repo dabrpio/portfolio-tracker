@@ -1,5 +1,5 @@
 import { MaterialCommunityIcons } from '@expo/vector-icons';
-import { router } from 'expo-router';
+import { router, useLocalSearchParams } from 'expo-router';
 import {
   ActivityIndicator,
   FlatList,
@@ -11,20 +11,40 @@ import {
 
 import { AccountItem } from '@/features/accounts/components/account-item';
 import { useAccounts } from '@/features/accounts/hooks/use-accounts';
+import { useImportTransaction } from '@/features/transactions/context/import-context';
 
 export default function SelectAccountScreen() {
+  const { returnTo } = useLocalSearchParams<{ returnTo?: string }>();
   const { data: accounts, isLoading } = useAccounts();
+  const { setSelectedAccountId, setSelectedOperation } = useImportTransaction();
 
   function handleSelectAccount(accountId: string) {
-    router.push({
-      pathname: '/import/asset',
-      params: { accountId },
-    });
+    setSelectedAccountId(accountId);
+
+    if (returnTo) {
+      router.back();
+      return;
+    }
+
+    const selected = accounts?.find((acc) => acc.id === accountId);
+    if (selected?.type === 'brokerage') {
+      router.push({
+        pathname: '/import/operation',
+        params: { accountId },
+      });
+    } else {
+      setSelectedOperation('DEPOSIT');
+      router.push({
+        pathname: '/import/cash-details',
+        params: { accountId },
+      });
+    }
   }
 
   function handleCreateAccount() {
     router.push('/accounts/create');
   }
+
 
   return (
     <View style={styles.container}>
