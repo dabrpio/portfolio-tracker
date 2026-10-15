@@ -5,10 +5,10 @@
   "type": "module",
   "exports": {
     ".": "./src/index.ts",
-    "./accounts": "./src/accounts/index.ts",
-    "./brokers": "./src/brokers/index.ts",
-    "./currencies": "./src/currencies/index.ts",
-    "./transactions": "./src/transactions/index.ts"
+    "./accounts": "./src/accounts.ts",
+    "./brokers": "./src/brokers.ts",
+    "./currencies": "./src/currencies.ts",
+    "./transactions": "./src/transactions.ts"
   },
   "scripts": {
     "lint": "eslint .",
