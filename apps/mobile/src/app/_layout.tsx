@@ -1,7 +1,8 @@
-import { useAuth } from '@/features/auth/use-auth';
-import { queryClient } from '@/lib/query-client';
 import { QueryClientProvider } from '@tanstack/react-query';
 import { Stack } from 'expo-router';
+
+import { useAuth } from '@/features/auth/use-auth';
+import { queryClient } from '@/lib/query-client';
 
 export default function RootLayout() {
   const { loading, isAuthenticated } = useAuth();

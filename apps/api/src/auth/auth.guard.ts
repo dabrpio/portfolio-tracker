@@ -1,10 +1,11 @@
 import {
-  type CanActivate,
-  type ExecutionContext,
   Injectable,
   UnauthorizedException,
+  type CanActivate,
+  type ExecutionContext,
 } from '@nestjs/common';
 import type { Request } from 'express';
+
 import { AuthService } from './auth.service.js';
 
 export type AuthenticatedRequest = Request & {

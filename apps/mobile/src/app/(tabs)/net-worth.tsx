@@ -1,6 +1,7 @@
+import { ScrollView, StyleSheet, View } from 'react-native';
+
 import { AddTransactionFab } from '@/components/add-transaction-fab';
 import { TabHeader } from '@/components/tab-header';
-import { ScrollView, StyleSheet, View } from 'react-native';
 
 export default function NetWorth() {
   return (

@@ -1,6 +1,7 @@
 import { Injectable } from '@nestjs/common';
-import type { Account, CreateAccount } from '@portfolio-tracker/shared';
+
 import { FirebaseService } from '../firebase/firebase.service.js';
+import type { Account, CreateAccount } from '@portfolio-tracker/shared';
 
 @Injectable()
 export class AccountsService {

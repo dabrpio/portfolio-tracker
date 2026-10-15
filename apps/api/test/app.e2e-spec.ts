@@ -1,6 +1,7 @@
 import { type INestApplication } from '@nestjs/common';
 import { Test, type TestingModule } from '@nestjs/testing';
 import request from 'supertest';
+
 import { AppModule } from './../src/app.module.js';
 
 type App = Parameters<typeof request>[0];

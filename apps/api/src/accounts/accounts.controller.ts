@@ -1,9 +1,9 @@
 import { Body, Controller, Get, Post, UseGuards } from '@nestjs/common';
-import type { CreateAccount } from '@portfolio-tracker/shared';
-import type { AuthenticatedRequest } from '../auth/auth.guard.js';
-import { AuthGuard } from '../auth/auth.guard.js';
+
+import { AuthGuard, type AuthenticatedRequest } from '../auth/auth.guard.js';
 import { CurrentUser } from '../auth/current-user.decorator.js';
 import { AccountsService } from './accounts.service.js';
+import type { CreateAccount } from '@portfolio-tracker/shared';
 
 @Controller('accounts')
 @UseGuards(AuthGuard)

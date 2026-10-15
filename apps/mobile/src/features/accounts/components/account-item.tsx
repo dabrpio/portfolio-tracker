@@ -1,6 +1,7 @@
 import { MaterialCommunityIcons } from '@expo/vector-icons';
-import { getBrokerByName, type Account } from '@portfolio-tracker/shared';
 import { Image, Pressable, StyleSheet, Text, View } from 'react-native';
+
+import { getBrokerByName, type Account } from '@portfolio-tracker/shared';
 
 interface AccountItemProps {
   account: Account;

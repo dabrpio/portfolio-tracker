@@ -1,3 +1,11 @@
 {
-  "singleQuote": true
+  "singleQuote": true,
+  "plugins": ["@ianvs/prettier-plugin-sort-imports"],
+  "importOrder": [
+    "<THIRD_PARTY_MODULES>",
+    "",
+    "^(@portfolio-tracker/.*|@/.*|\\.\\.?/.*)$"
+  ],
+  "importOrderParserPlugins": ["typescript", "decorators-legacy", "jsx"],
+  "importOrderTypeScriptVersion": "5.0.0"
 }

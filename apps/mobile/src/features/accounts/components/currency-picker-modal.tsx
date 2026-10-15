@@ -1,9 +1,4 @@
 import { MaterialCommunityIcons } from '@expo/vector-icons';
-import {
-  CURRENCIES,
-  getFlagUrl,
-  type Currency,
-} from '@portfolio-tracker/shared';
 import { Image } from 'expo-image';
 import { useState } from 'react';
 import {
@@ -16,6 +11,12 @@ import {
   View,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+
+import {
+  CURRENCIES,
+  getFlagUrl,
+  type Currency,
+} from '@portfolio-tracker/shared';
 
 interface CurrencyPickerModalProps {
   visible: boolean;

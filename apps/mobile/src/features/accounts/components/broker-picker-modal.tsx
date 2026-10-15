@@ -1,5 +1,4 @@
 import { MaterialCommunityIcons } from '@expo/vector-icons';
-import { BROKERS, type Broker } from '@portfolio-tracker/shared';
 import { useState } from 'react';
 import {
   FlatList,
@@ -12,6 +11,8 @@ import {
   View,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+
+import { BROKERS, type Broker } from '@portfolio-tracker/shared';
 
 interface BrokerPickerModalProps {
   visible: boolean;

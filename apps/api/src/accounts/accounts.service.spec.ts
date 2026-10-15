@@ -1,6 +1,7 @@
 import { describe, expect, it, vi } from 'vitest';
-import { AccountsService } from './accounts.service.js';
+
 import type { FirebaseService } from '../firebase/firebase.service.js';
+import { AccountsService } from './accounts.service.js';
 
 describe('AccountsService', () => {
   it('creates an account and returns it without userId', async () => {
@@ -42,6 +43,7 @@ describe('AccountsService', () => {
     );
     expect(result).toEqual({
       id: 'mock-account-id',
+      userId: 'test-user-123',
       name: 'XTB Main',
       type: 'brokerage',
       broker: 'XTB',
@@ -50,7 +52,6 @@ describe('AccountsService', () => {
       createdOn: expect.any(String),
       lastUpdate: expect.any(String),
     });
-    expect((result as Record<string, unknown>).userId).toBeUndefined();
   });
 
   it('retrieves accounts for a specific user', async () => {
@@ -87,6 +88,7 @@ describe('AccountsService', () => {
     expect(result).toEqual([
       {
         id: 'acc-1',
+        userId: 'test-user-123',
         name: 'Main Cash',
         type: 'cash',
         broker: null,

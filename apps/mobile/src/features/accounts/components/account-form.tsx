@@ -1,11 +1,5 @@
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { zodResolver } from '@hookform/resolvers/zod';
-import {
-  createAccountSchema,
-  getBrokerByName,
-  type Account,
-  type CreateAccount,
-} from '@portfolio-tracker/shared';
 import { useState } from 'react';
 import { Controller, useForm, useWatch } from 'react-hook-form';
 import {
@@ -22,6 +16,12 @@ import {
 import { useCreateAccount } from '../hooks/use-create-account';
 import { BrokerPickerModal } from './broker-picker-modal';
 import { CurrencyPickerModal } from './currency-picker-modal';
+import {
+  createAccountSchema,
+  getBrokerByName,
+  type Account,
+  type CreateAccount,
+} from '@portfolio-tracker/shared';
 
 interface AccountFormProps {
   submitButtonText?: string;

@@ -1,6 +1,6 @@
 import { Controller, Delete, UseGuards } from '@nestjs/common';
-import type { AuthenticatedRequest } from '../auth/auth.guard.js';
-import { AuthGuard } from '../auth/auth.guard.js';
+
+import { AuthGuard, type AuthenticatedRequest } from '../auth/auth.guard.js';
 import { CurrentUser } from '../auth/current-user.decorator.js';
 import { UsersService } from './users.service.js';
 

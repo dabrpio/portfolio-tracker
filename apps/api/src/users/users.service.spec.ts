@@ -1,4 +1,5 @@
 import { describe, expect, it, vi } from 'vitest';
+
 import type { FirebaseService } from '../firebase/firebase.service.js';
 import { UsersService } from './users.service.js';
 
@@ -23,9 +24,13 @@ describe('UsersService', () => {
 
     const mockCollection = vi.fn().mockImplementation((name: string) => ({
       where: vi.fn().mockReturnValue({
-        get: vi.fn().mockResolvedValue(
-          name === 'accounts' ? mockAccountsSnapshot : mockTransactionsSnapshot,
-        ),
+        get: vi
+          .fn()
+          .mockResolvedValue(
+            name === 'accounts'
+              ? mockAccountsSnapshot
+              : mockTransactionsSnapshot,
+          ),
       }),
     }));
 
